@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="justify-content-between">
+        <button class="d-sm-none" mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>AuthApp</span>
+
+        <div class="linksContainer d-none d-sm-block">
+            <a routerLinkActive="mat-accent" [routerLink]="['home']" mat-button>Home</a>
+            <a routerLinkActive="mat-accent" [routerLink]="['products']" mat-button>Products</a>
+            <a *ngIf="auth.loggedIn" routerLinkActive="mat-accent" [routerLink]="['profile']" mat-button>My profile</a>
+        </div>
+
+        <div>
+            <button (click)="auth.login()" *ngIf="!auth.loggedIn" mat-button>Log in</button>
+            <button (click)="auth.logout()" *ngIf="auth.loggedIn" mat-button>Log out</button>
+        </div>
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav class="d-sm-none" color="primary" #sidenav mode="over" opened="false">
+        <div class="d-flex flex-column mt-4">
+            <a [routerLink]="['home']" routerLinkActive="mat-accent" mat-button class="text-center mb-2">
+                Home
+            </a>
+
+            <a [routerLink]="['products']" routerLinkActive="mat-accent" mat-button class="text-center mb-2">
+                Products
+            </a>
+
+            <a *ngIf="auth.loggedIn" [routerLink]="['profile']" routerLinkActive="mat-accent" mat-button class="text-center mb-2">
+                My profile
+            </a>
+        </div>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

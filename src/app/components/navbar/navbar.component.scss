@@ -1,0 +1,19 @@
+mat-toolbar {
+    min-height: 7vh;
+    height: 7vh;
+    mat-toolbar-row {
+        height: 100%;
+        .linksContainer {
+            button {
+                &.active {}
+            }
+        }
+    }
+}
+
+mat-sidenav-container {
+    height: 93vh;
+    mat-sidenav {
+        width: 170px;
+    }
+}

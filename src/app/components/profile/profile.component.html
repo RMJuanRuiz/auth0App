@@ -1,0 +1,16 @@
+<h2 class="ml-4 mt-2">My Profile</h2>
+
+<div clas="row">
+    <div class="col-md-5 col-xl-3">
+        <mat-card class="m-4" *ngIf="auth.userProfile$ | async as profile">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon>perm_identity</mat-icon>
+                </div>
+                <mat-card-title>{{ profile.given_name }}</mat-card-title>
+                <mat-card-subtitle>{{ profile.email }}</mat-card-subtitle>
+            </mat-card-header>
+            <img class="p-3" mat-card-image [src]="profile.picture">
+        </mat-card>
+    </div>
+</div>
